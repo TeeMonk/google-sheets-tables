@@ -19,6 +19,13 @@ The data in Sheet1 need to have column descriptions:
 Once table object is created you can start using its methods to manipulate Sheet1 data.
 
 ### `getItem(value, keyField)`
-Takes sheet cell value (`value`) for indicated column description (`keyField`) and returns matching table item.
-
-
+Takes sheet cell value (`value`) for indicated column description (`keyField`) and returns matching table item. If second, optional argument is ommited `primaryKey` is used to indicate column for lookup.   
+```javascript
+  var item;
+  
+  item = table.getItem(1);
+  Logger.log(item.Address); // Logs "Main Street 23"
+  
+  item = table.getItem("Black Horse", "Customer Name");
+  Logger.log(item["Contact Name"]); // Logs "Jake Weary"
+```
