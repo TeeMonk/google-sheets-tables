@@ -55,3 +55,14 @@ Takes table `item` object and appends it to the source sheet. Item properties mu
   Logger.log(item["Contact Name"]); // Logs "Jan Kowalski"
 ```
 
+### `updateItemValue(keyField, keyValue, field, value)`
+Takes `keyValue` and `keyField` to finf specific table item and updates `value` in target `field` column.
+```javascript
+  var item;
+  item = table.getItem("Black Horse", "Customer Name");
+  Logger.log(item["Contact Name"]); // Logs "Jake Weary"
+  
+  table.updateItemValue("Customer Name", "Black Horse", "Contact Name", "John Doe");
+  item = table.getItem("Black Horse", "Customer Name");
+  Logger.log(item["Contact Name"]); // Logs "John Doe"
+```
