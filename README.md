@@ -5,7 +5,7 @@ CRUD operations for google sheets
 This repository contains a Google Apps Script helper function that makes manipulating Google Sheets data through script more convenient. It provides create, read and update methods for single sheet (delete method is coming soon). The script assumes that data in the sheet contains proper column descriptions. Sheet data is transformed into array of item objects. Each item object reperesenting single row. Column descriptions are used to create item properties.
 
 # How To Use
-1. Copy code from [gsTable.js](../blob/master/gsTable) to your Google Apps Script editor. 
+1. Copy code from [gsTable.js](https://github.com/TeeMonk/google-sheets-tables/blob/master/gsTable.js) to your Google Apps Script editor. 
 2. Create new `gsTable` object, pass Google Sheet object as an argument:
 ```javascript
 var sheet = SpreadsheetApp.getActive().getSheetByName('Sheet1');
