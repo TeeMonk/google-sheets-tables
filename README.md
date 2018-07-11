@@ -9,7 +9,7 @@ This repository contains a Google Apps Script helper function that makes manipul
 2. Create new `gsTable` object, pass Google Sheet object as an argument:
 ```javascript
 var sheet = SpreadsheetApp.getActive().getSheetByName('Sheet1');
-var table = new gsTable(sheet);
+var table = new gsTable(sheet); // if second argument is ommited, first column is used as 'primaryKey'
 ```
 
 The data in Sheet1 need to have column descriptions:
