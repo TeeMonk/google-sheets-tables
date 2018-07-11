@@ -102,7 +102,8 @@ function gsTable(sheet, primaryKey){
     var rIndex = 0;
     for (var i = 0; i < data.length; i++){
       if (data[i][headers.indexOf(keyField)] === keyValue){
-        data[i][field] = value;
+        data[i][headers.indexOf(field)] = value;
+        this.items[i][field] = value;
         rIndex = i + 2;
         break;
       }
