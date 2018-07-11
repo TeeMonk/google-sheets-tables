@@ -37,3 +37,21 @@ Takes sheet cell value (`value`) for indicated column description (`keyField`) a
   Logger.log(items[0].Address); // Logs "Main Street 23"
   Logger.log(items[1].Address); // Logs "11 Hanover Sq"
 ```  
+
+### `addItem(item)`
+Takes table `item` object and appends it to the source sheet. Item properties must reflect sheet columnsit terms of number and  descriptions.
+```javascript
+  var item = {};
+  item["CustomerID"] = 6;
+  item["Customer Name"]	= "New Customer"
+  item["Contact Name"] = "Jan Kowalski";	
+  item["Address"] = "Prosta 12";	
+  item["City"] = "Warsaw";	
+  item["Postal Code"] = "00-798";	
+  item["Country"] = "Poland";
+  
+  table.addItem(item); // Adds new row to sheet
+  item = table.getItem("Poland", "Country");
+  Logger.log(item["Contact Name"]); // Logs "Jan Kowalski"
+```
+
