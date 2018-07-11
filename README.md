@@ -6,7 +6,7 @@ This repository contains a Google Apps Script helper function that makes manipul
 
 ## How To Use
 1. Copy code from [gsTable.js](https://github.com/TeeMonk/google-sheets-tables/blob/master/gsTable.js) to your Google Apps Script editor. 
-2. Create new `gsTable` object, pass Google Sheet object as an argument. If second, optional argument is ommited, first column becomes `primaryKey`  -  used as default key for selecting and updating table items.
+2. Create new `gsTable` object, pass Google `sheet` object as an argument. If second, optional argument is ommited, first column becomes `primaryKey`  -  used as default key for selecting and updating table items.
 ```javascript
 var sheet = SpreadsheetApp.getActive().getSheetByName('Sheet1');
 var table = new gsTable(sheet); 
