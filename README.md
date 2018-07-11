@@ -15,7 +15,9 @@ var table = new gsTable(sheet);
 The data in Sheet1 need to have column descriptions:
 ![sample data](https://github.com/TeeMonk/google-sheets-tables/blob/master/gsheet.PNG "sample data")
 
-Once tabele object is created you can start using its methods to manipulate Sheet1 data.
+## gsTable object methods
+Once table object is created you can start using its methods to manipulate Sheet1 data.
 
-## `getItem` 
+### `getItem((value, keyField))`
+Takes sheet cell (`value`) for indicated column description (`keyField`) and returns matching table item.
 
