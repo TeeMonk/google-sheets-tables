@@ -56,7 +56,7 @@ Takes table `item` object and appends it to the source sheet. Item properties mu
 ```
 
 ### `updateItemValue(keyField, keyValue, field, value)`
-Takes `keyValue` and `keyField` to finf specific table item and updates `value` in target `field` column.
+Takes `keyValue` and `keyField` to find specific table item and updates `value` in target `field` column.
 ```javascript
   var item;
   item = table.getItem("Black Horse", "Customer Name");
