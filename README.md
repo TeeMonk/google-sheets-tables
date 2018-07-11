@@ -19,6 +19,6 @@ The data in Sheet1 need to have column descriptions:
 Once table object is created you can start using its methods to manipulate Sheet1 data.
 
 ### `getItem(value, keyField)`
-Takes sheet cell (`value`) for indicated column description (`keyField`) and returns matching table item.
+Takes sheet cell value (`value`) for indicated column description (`keyField`) and returns matching table item.
 
 
