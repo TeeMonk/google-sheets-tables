@@ -23,8 +23,8 @@ Takes sheet cell value (`value`) for indicated column description (`keyField`) a
 ```javascript
   var item;
   
-  item = table.getItem(1);
-  Logger.log(item.Address); // Logs "Main Street 23"
+  item = table.getItem(2); // use first column to lookup for value
+  Logger.log(item.Address); // Logs "Lijun Rd 6"
   
   item = table.getItem("Black Horse", "Customer Name");
   Logger.log(item["Contact Name"]); // Logs "Jake Weary"
