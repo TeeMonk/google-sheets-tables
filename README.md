@@ -39,7 +39,7 @@ Takes sheet cell value (`value`) for indicated column description (`keyField`) a
 ```  
 
 ### `addItem(item)`
-Takes table `item` object and appends it to the source sheet. Item properties must reflect sheet columnsit terms of number and  descriptions.
+Takes table `item` object and appends it to the source sheet. Item properties must reflect sheet columns in terms of number and  descriptions.
 ```javascript
   var item = {};
   item["CustomerID"] = 6;
