@@ -5,7 +5,7 @@
  * @param primaryKey   {string} [primaryKey = first column] Optional column name, indicates default key field. 
  * @returns GSTable    {object}                             Object, containing table items.
  */
-function GStable(sheet, primaryKey){
+function gsTable(sheet, primaryKey){
   var data = sheet.getDataRange().getValues();
   var headers = data.shift();
   var primaryKey = primaryKey || headers[0]; 
