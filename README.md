@@ -11,6 +11,6 @@ This repository contains a Google Apps Script helper function that makes manipul
 var sheet = SpreadsheetApp.getActive().getSheetByName('Sheet1');
 var table = new gsTable(sheet);
 ```
-The data in Sheet1 need to have column descriptions, example:
+The data in Sheet1 need to have column descriptions:
 ![sample data](https://github.com/TeeMonk/google-sheets-tables/blob/master/gsheet.PNG "sample data")
 
