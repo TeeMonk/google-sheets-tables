@@ -22,7 +22,7 @@ Once table object is created you can start using its methods to manipulate Sheet
 Takes sheet cell value (`value`) for indicated column description (`keyField`) and returns matching table item. If second, optional argument is ommited `primaryKey` is used to indicate column for lookup.   
 ```javascript
   var item;
-  item = table.getItem(2); // use first column for lookup
+  item = table.getItem(2); // first column used for lookup by default
   Logger.log(item.Address); // Logs "Lijun Rd 6"
   
   item = table.getItem("Black Horse", "Customer Name");
