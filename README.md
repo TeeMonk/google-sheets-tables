@@ -28,3 +28,12 @@ Takes sheet cell value (`value`) for indicated column description (`keyField`) a
   item = table.getItem("Black Horse", "Customer Name");
   Logger.log(item["Contact Name"]); // Logs "Jake Weary"
 ```
+
+### `getItems(value, keyField)`
+Takes sheet cell value (`value`) for indicated column description (`keyField`) and returns array of all matching table items. If second, optional argument is ommited `primaryKey` is used to indicate column for lookup.   
+```javascript
+  var items;
+  items = table.getItems("London", "City");
+  Logger.log(items[0].Address); // Logs "Main Street 23"
+  Logger.log(items[1].Address); // Logs "11 Hanover Sq"
+```  
