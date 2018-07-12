@@ -68,7 +68,7 @@ Takes `keyValue` and `keyField` to find specific table item and updates `value` 
 ```
 
 ### `updateItem(item, keyField)`
-Matches sheet `keyField` column value with respective `item` property and updates all columns according to item properties.
+Matches sheet `keyField` column value with respective `item` property and updates all columns according to item properties. Item properties must reflect sheet columns in terms of number and descriptions.
 ```javascript
   var item = table.getItem(4);
   Logger.log(item["Customer Name"]); // Logs "Double Reflection"
