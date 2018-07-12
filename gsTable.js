@@ -78,10 +78,9 @@ function gsTable(sheet, primaryKey){
     if (success){
       //set values
       var values = [row];
-      var range = sheet.getRange(data.length + 2, 1, 1, headers.length);
+      var range = sheet.getRange(this.items.length + 2, 1, 1, headers.length);
       range.setValues(values);
-      //update table
-      data.push(row);
+      //update items
       this.items.push(item);      
     }
   }
@@ -100,9 +99,8 @@ function gsTable(sheet, primaryKey){
     if (headers.indexOf(keyField) === -1) return false;
     //get row index
     var rIndex = 0;
-    for (var i = 0; i < data.length; i++){
-      if (data[i][headers.indexOf(keyField)] === keyValue){
-        data[i][headers.indexOf(field)] = value;
+    for (var i = 0; i < this.items.length; i++){
+      if (this.items[i][keyField] === keyValue){
         this.items[i][field] = value;
         rIndex = i + 2;
         break;
@@ -119,5 +117,55 @@ function gsTable(sheet, primaryKey){
       return false;
     }
   }
-  
+  /**
+  * Matches sheet keyField column value with respective item property and updates all columns according to item properties.
+  * @param item         {object}                           Item object. Object properties must match with sheet columns.
+  * @param keyField     {string}   [keyField = primaryKey] Optional name of sheet column and item property name to match.  
+  * @returns success    {bool}                             Indicates if update was successful.
+  */
+  this.updateItem = function(item, keyField){
+    //validate arguments
+    keyField = keyField || primaryKey;
+    if (headers.indexOf(keyField) === -1) return false;
+    
+    //transform item to row
+    var success = true;
+    var row = new Array(headers.length);
+    try {
+      for (var property in item) {
+        if (item.hasOwnProperty(property)) {
+          var index = headers.indexOf(property);
+          if (index === -1) {
+            success = false;
+          }
+          else {
+            row[index] = item[property];
+          }
+        }
+      }
+    }
+    catch(err) {
+      success = false;
+    }
+    if (success === false) return false;
+    
+    //get row index
+    for (var i = 0; i < this.items.length; i++){
+      if (this.items[i][keyField] === item[keyField]){
+        this.items[i] = item;
+        rIndex = i + 2;
+        break;
+      }
+    }
+    //set values
+    if (rIndex > 1){  
+      var range = sheet.getRange(rIndex, 1, 1, row.length);
+      var values = [row];
+      range.setValues(values);
+      return true; 
+    } 
+    else {
+      return false;
+    }
+  }
 } 
