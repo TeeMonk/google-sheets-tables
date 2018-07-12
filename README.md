@@ -66,3 +66,23 @@ Takes `keyValue` and `keyField` to find specific table item and updates `value` 
   item = table.getItem("Black Horse", "Customer Name");
   Logger.log(item["Contact Name"]); // Logs "John Doe"
 ```
+
+### `updateItem(item, keyField)`
+Matches sheet `keyField` column value with respective `item` property and updates all columns according to item properties.
+```javascript
+  var item = table.getItem(4);
+  Logger.log(item["Customer Name"]); // Logs "Double Reflection"
+
+  var newItem = {};
+  newItem["CustomerID"] = 4;
+  newItem["Customer Name"] = "Ruby On Rails"
+  newItem["Contact Name"] = "John Python";	
+  newItem["Address"] = "Blume St. 12";	
+  newItem["City"] = "Berlin";	
+  newItem["Postal Code"] = "DE1245";	
+  newItem["Country"] = "Germany";
+  
+  table.updateItem(newItem, "CustomerID");
+  item = table.getItem(4);
+  Logger.log(item["Customer Name"]); // Logs "Ruby On Rails"
+```
