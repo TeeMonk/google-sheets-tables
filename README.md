@@ -6,7 +6,7 @@ This repository contains a Google Apps Script helper function that makes manipul
 
 ## How To Use
 1. Copy code from [gsTable.js](https://github.com/TeeMonk/google-sheets-tables/blob/master/gsTable.js) to your Google Apps Script editor. 
-2. Create new `gsTable` object, pass Google `sheet` object as an argument. If second, optional argument is ommited, first column becomes `primaryKey`  -  used as default key for selecting and updating table items.
+2. Create new `gsTable` object, pass Google `sheet` object as an argument. If second, optional argument is ommited, first column becomes `defaultKey`  -  used as default key for selecting and updating table items.
 ```javascript
 var sheet = SpreadsheetApp.getActive().getSheetByName('Sheet1');
 var table = new gsTable(sheet); 
@@ -19,7 +19,7 @@ The data in Sheet1 need to have column descriptions:
 Once table object is created you can start using its methods to manipulate Sheet1 data.
 
 ### `getItem(value, keyField)`
-Takes sheet cell value (`value`) for indicated column description (`keyField`) and returns matching table item. If second, optional argument is ommited `primaryKey` is used to indicate column for lookup.   
+Takes sheet cell value (`value`) for indicated column description (`keyField`) and returns matching table item. If second, optional argument is ommited `defaultKey` is used to indicate column for lookup.   
 ```javascript
   var item;
   item = table.getItem(2); // first column used for lookup by default
@@ -30,7 +30,7 @@ Takes sheet cell value (`value`) for indicated column description (`keyField`) a
 ```
 
 ### `getItems(value, keyField)`
-Takes sheet cell value (`value`) for indicated column description (`keyField`) and returns array of all matching table items. If second, optional argument is ommited `primaryKey` is used to indicate column for lookup.   
+Takes sheet cell value (`value`) for indicated column description (`keyField`) and returns array of all matching table items. If second, optional argument is ommited `defaultKey` is used to indicate column for lookup.   
 ```javascript
   var items;
   items = table.getItems("London", "City");
@@ -39,7 +39,8 @@ Takes sheet cell value (`value`) for indicated column description (`keyField`) a
 ```  
 
 ### `addItem(item)`
-Takes table `item` object and appends it to the source sheet. Item properties must reflect sheet columns in terms of number and  descriptions.
+Takes table `item` object and appends it to the source sheet. If an item property does not match any of the table columns in sheet, cell is filled with `NOT_FOUND` value. If there is no match for at least one property, new row will not be added. 
+Returns `true` is operation was successfull, rerurns `false` if operation was not successfull. 
 ```javascript
   var item = {};
   item["CustomerID"] = 6;
@@ -56,7 +57,8 @@ Takes table `item` object and appends it to the source sheet. Item properties mu
 ```
 
 ### `updateItemValue(keyField, keyValue, field, value)`
-Takes `keyValue` and `keyField` to find specific table item and updates `value` in target `field` column.
+Takes `keyValue` and `keyField` to find specific table item and updates `value` in target `field` column. 
+Returns `true` is operation was successfull, rerurns `false` if operation was not successfull. 
 ```javascript
   var item;
   item = table.getItem("Black Horse", "Customer Name");
@@ -68,7 +70,7 @@ Takes `keyValue` and `keyField` to find specific table item and updates `value` 
 ```
 
 ### `updateItem(item, keyField)`
-Matches sheet `keyField` column value with respective `item` property and updates all columns according to item properties. Item properties must reflect sheet columns in terms of number and descriptions.
+
 ```javascript
   var item = table.getItem(4);
   Logger.log(item["Customer Name"]); // Logs "Double Reflection"
