@@ -70,8 +70,7 @@ Returns `true` is operation was successfull, rerurns `false` if operation was no
 ```
 
 ### `updateItem(item, keyField)`
-Matches sheet `keyField` column value with respective `item` property and updates all columns according to item properties. 
-Returns `true` is operation was successfull, rerurns `false` if operation was not successfull. 
+
 ```javascript
   var item = table.getItem(4);
   Logger.log(item["Customer Name"]); // Logs "Double Reflection"
