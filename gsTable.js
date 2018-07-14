@@ -111,7 +111,6 @@ function gsTable(sheet, defaultKey){
     //validate arguments
     keyField = keyField || defaultKey;
     if (headers.indexOf(keyField) === -1) return false;
-    
     //get row index
     var rIndex = 0;
     for (var i = 0; i < this.items.length; i++){
@@ -122,7 +121,6 @@ function gsTable(sheet, defaultKey){
       }
     }
     if (rIndex < 2) return false;
-    
     //transform item to row
     var success = false;
     var row = new Array(headers.length);
@@ -136,7 +134,6 @@ function gsTable(sheet, defaultKey){
       }
     }
     if (!success) return success;
-    
     //set values
     var range = sheet.getRange(rIndex, 1, 1, row.length);
     var values = [row];
