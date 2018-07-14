@@ -39,7 +39,8 @@ Takes sheet cell value (`value`) for indicated column description (`keyField`) a
 ```  
 
 ### `addItem(item)`
-Takes table `item` object and appends it to the source sheet. If an item property does not match any of the table columns in sheet, cell is filled with `NOT_FOUND` value. If there is no match for at least one property, new row will not be added. Returns `true` is operation was successfull, rerurns `false` if operation was not successfull. 
+Takes table `item` object and appends it to the source sheet. If an item property does not match any of the table columns in sheet, cell is filled with `NOT_FOUND` value. If there is no match for at least one property, new row will not be added. 
+Returns `true` is operation was successfull, rerurns `false` if operation was not successfull. 
 ```javascript
   var item = {};
   item["CustomerID"] = 6;
@@ -56,7 +57,8 @@ Takes table `item` object and appends it to the source sheet. If an item propert
 ```
 
 ### `updateItemValue(keyField, keyValue, field, value)`
-Takes `keyValue` and `keyField` to find specific table item and updates `value` in target `field` column. Returns `true` is operation was successfull, rerurns `false` if operation was not successfull. 
+Takes `keyValue` and `keyField` to find specific table item and updates `value` in target `field` column. 
+Returns `true` is operation was successfull, rerurns `false` if operation was not successfull. 
 ```javascript
   var item;
   item = table.getItem("Black Horse", "Customer Name");
@@ -68,7 +70,8 @@ Takes `keyValue` and `keyField` to find specific table item and updates `value` 
 ```
 
 ### `updateItem(item, keyField)`
-Matches sheet `keyField` column value with respective `item` property and updates all columns according to item properties. Returns `true` is operation was successfull, rerurns `false` if operation was not successfull. 
+Matches sheet `keyField` column value with respective `item` property and updates all columns according to item properties. 
+Returns `true` is operation was successfull, rerurns `false` if operation was not successfull. 
 ```javascript
   var item = table.getItem(4);
   Logger.log(item["Customer Name"]); // Logs "Double Reflection"
