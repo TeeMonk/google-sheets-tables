@@ -39,7 +39,7 @@ Takes sheet cell value (`value`) for indicated column description (`keyField`) a
 ```  
 
 ### `addItem(item)`
-Takes table `item` object and appends it to the source sheet. If an item property does not match any of the table columns in sheet, cell is filled with `NOT_FOUND` value. If there is no match for at least one property, new row will not be added. 
+Takes table `item` object and appends it to the source sheet. If a table column in sheet does not match any of the item properties, respective sheet cell is filled with `NOT_FOUND` value. If there is no match for at least one property, new row will not be added. 
 Returns `true` is operation was successfull, rerurns `false` if operation was not successfull. 
 ```javascript
   var item = {};
